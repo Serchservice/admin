@@ -1,0 +1,111 @@
+@use '../abstracts/' as *;
+
+@mixin form-styling() {
+   form {
+      --blur: plum;
+      --valid: lime;
+      --invalid: red;
+      --focus: yellow;
+
+      width: 100%;
+
+      .form-group {
+         margin: $pad-500 0;
+         position: relative;
+
+         label {
+            font-weight: $fw-semi-bold;
+         }
+
+         .input-hint {
+            font-size: $fs-small-text;
+            letter-spacing: $ls-100;
+            margin-left: 4px;
+
+            &.error {
+               color: crimson;
+            }
+         }
+
+         input {
+            @include form-input-reset();
+            display: inline-block;
+            width: 100%;
+            margin-block: $pad-100;
+            padding: $pad-200 $pad-300;
+            border-radius: $br-light;
+            border: 1px inset var(--br-clr);
+            box-shadow: 2px 2px 5px rgba(black, 0.2);
+            transition: $transition;
+
+            &:focus {
+               box-shadow: $bs-input-field;
+            }
+
+            &::placeholder {
+               color: transparent;
+            }
+         }
+
+         .icon {
+            position: absolute;
+            right: $pad-200;
+            top: 50%;
+            transform: translateY(-40%);
+            user-select: none;
+         }
+      }
+
+      .forgot-password {
+         text-align: right;
+         width: 100%;
+      }
+
+      .form-group:has(:invalid) input {
+         --br-clr: var(--invalid)
+      }
+
+      .form-group:has(:invalid:not(:focus)) input {
+         animation: shake 0.5s linear;
+      }
+
+      .form-group:has(:focus) input {
+         --br-clr: var(--focus)
+      }
+
+      .form-group:has(:valid) input {
+         --br-clr: var(--valid)
+      }
+
+      .form-group:has(:placeholder-shown) input {
+         --br-clr: var(--blur);
+      }
+
+      .form-group:has(:placeholder-shown:not(:focus)) input {
+         animation: none
+      }
+   }
+}
+
+@keyframes shake {
+
+   0%,
+   100% {
+      transform: translateX(0)
+   }
+
+   10%,
+   30%,
+   50%,
+   70%,
+   90% {
+      transform: translateX(-4px)
+   }
+
+   20%,
+   40%,
+   60%,
+   80% {
+      transform: translateX(4px)
+   }
+}

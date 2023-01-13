@@ -1,0 +1,96 @@
+@use "../abstracts/" as *;
+
+header {
+  @include flex-row();
+  gap: 2em;
+
+  width: 100%;
+  padding: $pad-200 $pad-300;
+  position: fixed;
+  top: 0;
+  backdrop-filter: $backdrop;
+  -webkit-backdrop-filter: $backdrop;
+  z-index: $z-index-300;
+  box-shadow: $bs-100;
+
+  .logo {
+    @include flex-row();
+    gap: $pad-150;
+    margin-right: auto;
+
+    img {
+      width: 5em;
+    }
+
+    .menu {
+      display: grid;
+    }
+
+  }
+
+  .nav-links {
+    display: none;
+
+    a {
+      @include flex-row();
+      gap: $pad-100;
+      text-shadow: $ts-100;
+
+      .index {
+        color: var(--text-clr-variant-200);
+      }
+
+      .link-title {
+        text-transform: uppercase;
+        font-size: $fs-nav-links;
+        font-weight: $fw-bold;
+        letter-spacing: $ls-100;
+        color: var(--text-clr-variant-300);
+        transition: $transition;
+      }
+
+      .icon {
+        margin-top: -2px;
+      }
+
+      &:hover .link-title {
+        scale: 1.1;
+        padding-left: 8px;
+        color: var(--text-clr-variant-200);
+      }
+    }
+  }
+
+  .resume-btn {
+    padding: 5px 8px;
+
+    &:hover {
+      padding: 5px 10px;
+    }
+  }
+}
+
+
+@mixin header-laptop() {
+  header {
+    padding: $pad-300 $pad-400;
+
+    .logo .menu {
+      display: none;
+    }
+
+    .nav-links {
+      @include flex-row();
+      gap: $pad-400;
+    }
+
+    .resume-btn {
+      padding: $pad-100;
+
+      &:hover {
+        padding: $pad-100 $pad-200;
+      }
+    }
+
+  }
+}

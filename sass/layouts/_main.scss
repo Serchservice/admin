@@ -1,0 +1,14 @@
+@use "../abstracts/" as *;
+@use '../components/heading' as *;
+@use '../components/modal' as *;
+@use '../utitlities/' as *;
+
+@mixin main-laptop() {
+  @include section-heading-laptop();
+  @include base-laptop();
+  @include about-laptop();
+  @include projects-laptop();
+  @include gallery-laptop();
+  @include newsLetter-laptop();
+  @include contact-laptop();
+}

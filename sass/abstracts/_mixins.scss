@@ -1,0 +1,77 @@
+@use "./variables" as *;
+@use "./colors.scss" as *;
+@use "./type.scss" as *;
+
+@mixin bg-image($image: null, $pos: center) {
+  background-color: rgba(black, 0.7);
+  background-image: $image;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: $pos;
+  background-size: cover;
+}
+
+@mixin flex() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $pad-200;
+}
+
+@mixin flex-row($justify: center, $wrap: nowrap) {
+  @include flex();
+
+  flex-flow: row $wrap;
+  justify-content: $justify;
+}
+
+@mixin flex-column($align: start) {
+  @include flex();
+
+  flex-direction: column;
+  align-items: $align;
+}
+
+@mixin form-input-reset() {
+  padding: $pad-150 $pad-200;
+  border-radius: 100vmax;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+@mixin button-reset() {
+  border: none;
+  outline: none;
+  background: none;
+}
+
+@mixin menu-icon() {
+  width: 1em;
+  height: 1em;
+  position: relative;
+  border-radius: $br-regular;
+}
+
+@mixin pseudo() {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 6rem;
+  z-index: $z-index-200;
+
+}
+
+@mixin close-overlay() {
+  position: absolute;
+  top: $pad-500;
+  right: $pad-300;
+  cursor: pointer
+}
+
+// @zegocloud/zego-uikit-prebuilt
+// netlify-cli
+// react-paystack
+// axios
+// react-geolocated"
