@@ -1,0 +1,105 @@
+@use '../abstracts/' as *;
+
+.contact-page {
+  --color: null;
+  --valid: lime;
+  --invalid: red;
+  --focus: #999;
+  --blur: #555;
+
+  .contact-heading {
+    @include flex-column();
+    align-items: center;
+  }
+
+  .subtitle {
+    text-align: center;
+    max-width: 50ch;
+    margin: auto;
+  }
+
+  .content {
+    margin-block: $pad-400;
+
+    .img-container {
+      border-radius: $br-light;
+      order: 2;
+    }
+
+    form {
+      width: 100%;
+      margin-block: $pad-300;
+
+      input,
+      textarea {
+        @include form-input-reset();
+        display: inline-block;
+        width: 100%;
+        margin-block: $pad-200;
+        padding: $pad-200 $pad-300;
+        border: 1px solid var(--color);
+        border-radius: $br-light;
+        box-shadow: 2px 3px 6px rgba(black, 0.5),
+          0px -1px rgba(white, 0.3),
+          inset 1px 0px rgba(white, 0.3);
+
+        &:focus {
+          box-shadow: $bs-input-field;
+        }
+
+        &::placeholder {
+          color: #666;
+          font-style: italic;
+          font-weight: $fw-semi-bold;
+        }
+      }
+
+      textarea {
+        resize: none;
+
+        &::-webkit-scrollbar {
+          width: 0;
+          height: 0;
+        }
+      }
+    }
+
+
+    form:has(:focus) input:focus {
+      --color: var(--focus)
+    }
+
+    form:has(:invalid) :is(input:invalid, textarea:invalid) {
+      --color: var(--invalid)
+    }
+
+    form:has(:valid) :is(input, textarea) {
+      // --color: var(--valid)
+    }
+  }
+}
+
+@mixin contact-laptop() {
+  .contact-page {
+    .heading {
+      width: 100%;
+    }
+
+    .subtitle {
+      max-width: 70%;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: $pad-600;
+      width: 90%;
+      margin: 3em auto 2em;
+
+      form {
+        margin: auto
+      }
+    }
+
+  }
+}

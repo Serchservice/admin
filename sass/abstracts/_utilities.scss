@@ -1,0 +1,25 @@
+@use './type' as *;
+@use './variables' as *;
+
+// Fonts Utility Classes
+.fs-small {
+  font-size: $fs-small-text;
+  font-weight: $fw-semi-bold;
+  text-shadow: $ts-100;
+}
+
+.fw-semi-bold {
+  font-weight: $fw-semi-bold;
+}
+
+.fw-bold {
+  font-weight: $fw-bold;
+}
+
+.ff-variant {
+  font-family: $ff-variant;
+}
+
+.ff-header {
+  font-family: $ff-header-font;
+}

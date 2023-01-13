@@ -1,0 +1,75 @@
+@use '../abstracts/' as *;
+@use '../components/card' as *;
+
+.projects {
+  .card-container {
+    position: relative;
+    margin: $pad-400 0;
+    @include flex-column();
+    @include card();
+    gap: $pad-300;
+  }
+
+}
+
+@mixin projects-laptop {
+  .projects .card-container {
+    gap: 4em;
+
+    .card {
+      .card-content {
+        width: 60%;
+        box-shadow: 2px 2px 10px rgba(black, 0.2);
+
+        .project-thumbnail {
+          display: none;
+        }
+
+        .summary {
+          padding: $pad-400;
+          box-shadow: $bs-100;
+          max-width: 600px;
+        }
+
+        .tech-tools {
+          gap: $pad-300;
+
+          li {
+            margin-left: auto;
+            text-align: right;
+          }
+        }
+      }
+
+      .img-container {
+        display: block;
+        width: 60%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+
+      }
+    }
+
+    .card:nth-child(even) {
+      .card-content {
+        margin-left: auto;
+        text-align: right;
+      }
+
+      .featured {
+        order: 2;
+      }
+
+      .summary {
+        margin-left: auto;
+      }
+
+      .img-container {
+        left: 0;
+      }
+    }
+  }
+}

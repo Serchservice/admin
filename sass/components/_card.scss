@@ -1,0 +1,79 @@
+@use '../abstracts/' as *;
+
+@mixin card() {
+
+  .card {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+
+    .card-content {
+      padding: $pad-400;
+      border-radius: $br-light;
+      box-shadow: $bs-300;
+      min-height: 50vh;
+
+      .project-thumbnail {
+        margin: $pad-400 0;
+        display: block;
+      }
+
+      .top {
+        @include flex-row();
+        justify-content: space-between;
+
+        .featured {
+          color: var(--text-clr-variant);
+          letter-spacing: $ls-100;
+          text-shadow: $ts-100;
+          font-size: $fs-200;
+        }
+
+        .links {
+          @include flex-row();
+          gap: $pad-300;
+
+          .icon {
+            display: grid;
+          }
+        }
+      }
+
+      .project-title {
+        width: max-content;
+        margin: $pad-100 0;
+        transition: $transition;
+
+        &:hover {
+          color: var(--text-clr-variant)
+        }
+
+        &:active,
+        &:focus-visible {
+          padding: $pad-50 $pad-100;
+          border: 2px dotted var(--text-clr-variant);
+          border-radius: $br-light;
+        }
+      }
+
+      .summary {
+        margin-block: $pad-500;
+      }
+
+      .tech-tools {
+        @include flex-row($justify: start);
+        gap: $pad-150;
+
+        li {
+          letter-spacing: $ls-100;
+          text-shadow: $ts-100;
+          font-family: $ff-variant;
+        }
+      }
+    }
+
+    .img-container {
+      display: none;
+    }
+  }
+}

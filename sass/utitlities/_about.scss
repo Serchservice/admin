@@ -1,0 +1,41 @@
+@use '../abstracts/' as *;
+
+.about {
+  .about-body {
+    margin-bottom: $pad-300;
+
+    >* {
+      padding-block: $pad-200;
+    }
+
+    .skills {
+      margin: $pad-100;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: $pad-100 $pad-300;
+
+      .skill {
+        @include flex-row($justify: start);
+        gap: $pad-100;
+
+      }
+    }
+  }
+}
+
+@mixin about-laptop() {
+  .about {
+    .content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: $pad-300;
+
+      .img-container {
+        align-self: start;
+      }
+
+
+    }
+
+  }
+}
