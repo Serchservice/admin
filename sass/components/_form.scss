@@ -5,7 +5,7 @@
       --blur: plum;
       --valid: lime;
       --invalid: red;
-      --focus: yellow;
+      --focus: var(--blur);
 
       width: 100%;
 
@@ -17,16 +17,6 @@
             font-weight: $fw-semi-bold;
          }
 
-         .input-hint {
-            font-size: $fs-small-text;
-            letter-spacing: $ls-100;
-            margin-left: 4px;
-
-            &.error {
-               color: crimson;
-            }
-         }
-
          input {
             @include form-input-reset();
             display: inline-block;
@@ -34,7 +24,7 @@
             margin-block: $pad-100;
             padding: $pad-200 $pad-300;
             border-radius: $br-light;
-            border: 1px inset var(--br-clr);
+            border: 1px solid var(--br-clr);
             box-shadow: 2px 2px 5px rgba(black, 0.2);
             transition: $transition;
 
@@ -43,7 +33,7 @@
             }
 
             &::placeholder {
-               color: transparent;
+               color: #aaa;
             }
          }
 
@@ -51,7 +41,7 @@
             position: absolute;
             right: $pad-200;
             top: 50%;
-            transform: translateY(-40%);
+            // transform: translateY(-50%);
             user-select: none;
          }
       }

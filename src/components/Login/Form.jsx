@@ -40,7 +40,7 @@ function Form() {
             type="text"
             name="email"
             ref={emailRef}
-            placeholder="Your email"
+            placeholder="john@gmail.com"
             required
             pattern="[a-zA-Z0-9 -_.]+@[a-zA-Z0-9 -_.]+\.[a-z]{2,}"
             onInvalid={e => {
@@ -50,7 +50,6 @@ function Form() {
               e.target.setCustomValidity("");
             }}
           />
-          <span className="input-hint">Enter a valid email address</span>
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
@@ -69,7 +68,6 @@ function Form() {
               e.target.setCustomValidity("");
             }}
           />
-          <span className="input-hint">Must be at least 6 characters</span>
           {showPassword ? (
             <span className="show icon" onClick={handleClick} title="Hide Password">
               <AiOutlineEye size="20" />
